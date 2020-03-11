@@ -1,0 +1,186 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  font-size: 14px;
+  color: #333;
+}
+body {
+  height: 100vh;
+  width: 100%;
+  /* background: url("../images/bj.png") repeat-x #b8b6b6; */
+  background: #4568dc;
+  background: -webkit-linear-gradient(to right, #b06ab3, #4568dc);
+  background: linear-gradient(to right, #b06ab3, #4568dc);
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Helvetica Neue, Ubuntu, Arial, sans-serif;
+    overflow: hidden;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  color: #09f;
+  text-decoration: underline;
+}
+button {
+  cursor: pointer;
+  border: none;
+}
+.button {
+  position: relative;
+  margin: auto 10px;
+  padding: 10px 35px;
+  text-align: center;
+  text-decoration: none;
+  font: bold 12px/25px Arial, sans-serif;
+  display: inline-block;
+  box-sizing: content-box;
+  background-color: #1abc9c;
+  color: #fff;
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 30px;
+  outline: 0 !important;
+  border: 0;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.button.cancel {
+  background: #aaa;
+}
+
+.button:hover {
+  background: #148f77;
+}
+
+.button.cancel:hover {
+  background: #555;
+}
+
+.button:active {
+  -webkit-box-shadow: inset 0px 0px 3px rgba(0, 0, 0, 0.8);
+  -moz-box-shadow: inset 0px 0px 3px rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0px 0px 3px rgba(0, 0, 0, 0.8);
+}
+
+/* Big Button Style */
+
+.big {
+  padding: 0 40px;
+  padding-top: 10px;
+  height: 45px;
+  text-transform: uppercase;
+  font: bold 20px/22px Arial, sans-serif;
+}
+
+.big span {
+  display: block;
+  text-transform: none;
+  font: italic normal 12px/18px Georgia, sans-serif;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.12);
+}
+
+/* Green Color */
+
+.green {
+  color: #3e5706;
+
+  background: #a5cd4e; /* Old browsers */
+  background: -moz-linear-gradient(top, #a5cd4e 0%, #6b8f1a 100%); /* FF3.6+ */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, #a5cd4e),
+    color-stop(100%, #6b8f1a)
+  ); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(
+    top,
+    #a5cd4e 0%,
+    #6b8f1a 100%
+  ); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(
+    top,
+    #a5cd4e 0%,
+    #6b8f1a 100%
+  ); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #a5cd4e 0%, #6b8f1a 100%); /* IE10+ */
+  background: linear-gradient(top, #a5cd4e 0%, #6b8f1a 100%); /* W3C */
+}
+
+/* Blue Color */
+
+.blue {
+  color: #19667d;
+
+  background: #70c9e3; /* Old browsers */
+  background: -moz-linear-gradient(top, #70c9e3 0%, #39a0be 100%); /* FF3.6+ */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, #70c9e3),
+    color-stop(100%, #39a0be)
+  ); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(
+    top,
+    #70c9e3 0%,
+    #39a0be 100%
+  ); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(
+    top,
+    #70c9e3 0%,
+    #39a0be 100%
+  ); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #70c9e3 0%, #39a0be 100%); /* IE10+ */
+  background: linear-gradient(top, #70c9e3 0%, #39a0be 100%); /* W3C */
+}
+
+/* Gray Color */
+
+.gray {
+  color: #515151;
+
+  background: #d3d3d3; /* Old browsers */
+  background: -moz-linear-gradient(top, #d3d3d3 0%, #8a8a8a 100%); /* FF3.6+ */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, #d3d3d3),
+    color-stop(100%, #8a8a8a)
+  ); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(
+    top,
+    #d3d3d3 0%,
+    #8a8a8a 100%
+  ); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(
+    top,
+    #d3d3d3 0%,
+    #8a8a8a 100%
+  ); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #d3d3d3 0%, #8a8a8a 100%); /* IE10+ */
+  background: linear-gradient(top, #d3d3d3 0%, #8a8a8a 100%); /* W3C */
+}
+/*修改滚动条样式*/
+::-webkit-scrollbar{
+  width:5px;
+  height:10px;
+}
+::-webkit-scrollbar-track{
+  background: rgb(239, 239, 239);
+  border-radius:2px;
+}
+::-webkit-scrollbar-thumb{
+  background: #bfbfbf;
+}
+::-webkit-scrollbar-thumb:hover{
+  background: #333;
+}
+::-webkit-scrollbar-corner{
+  background: #179a16;
+}
