@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-03-11 22:41:10
- * @LastEditTime: 2020-03-11 22:45:07
+ * @LastEditTime: 2020-03-12 00:25:00
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \socket\README.md
@@ -20,7 +20,7 @@ cd chat-socketio
 npm install
 ```
 
-open browser
+## Open
 ```
 http://localhost:3000/
 ```
