@@ -3,7 +3,7 @@ $(document).ready(function() {
   let from = $.cookie("user");
   let to = "all";
   let shiftKey = false;
-
+  // 进入房间
   socket.emit("online", { user: from });
   socket.on("online", function(data) {
     let sys;
@@ -18,7 +18,7 @@ $(document).ready(function() {
     flushUsers(data.users);
     showSay();
   });
-
+  // 聊天
   socket.on("say", function(data) {
     console.log(data);
     let str = data.from.slice(0, 1).toUpperCase();
@@ -36,7 +36,7 @@ $(document).ready(function() {
     `);
     scrollDown();
   });
-
+  // 离开房间
   socket.on("offline", function(data) {
     let sys = `<div class="system">系统提示( ${now()} ) : 用户 ${
       data.user
@@ -48,14 +48,13 @@ $(document).ready(function() {
     }
     showSay();
   });
-
+  // 断开连接服务器
   socket.on("disconnect", function() {
     let sys = '<div class="system">系统提示:连接服务器失败！</div>';
     $("#contents").append(sys);
     $("#list").empty();
     scrollDown();
   });
-
   //重新启动服务器
   socket.on("reconnect", function() {
     var sys = '<div class="system">系统提示:重新连接服务器！</div>';
@@ -63,7 +62,7 @@ $(document).ready(function() {
     socket.emit("online", { user: from });
     scrollDown();
   });
-
+  // 在线人数
   function flushUsers(users) {
     $("#list")
       .empty()
@@ -93,7 +92,7 @@ $(document).ready(function() {
     $("#to").html(to == "all" ? "所有人" : to);
     scrollDown();
   }
-
+  // 时间
   function now() {
     let date = new Date();
     let year = date.getFullYear(),
@@ -105,7 +104,7 @@ $(document).ready(function() {
     let time = `${year}-${month}-${day} ${hour}:${minute}:${second}`;
     return time;
   }
-
+  // enter提交  shift+enter换行不提交
   $(document).keyup(function(e) {
     if (e.keyCode == 16) {
       shiftKey = false;
@@ -120,11 +119,11 @@ $(document).ready(function() {
       shiftKey = true;
     }
   });
-
+  // 发送信息
   $("#say").click(function() {
     chat();
   });
-
+  // 自己发的聊天
   function chat() {
     let input = $("#input_content");
     let msg = input.html().replace("<div><br></div>", "");
@@ -147,7 +146,7 @@ $(document).ready(function() {
     input.html("").focus();
     scrollDown();
   }
-
+  // 保持聊天框在最新一条
   function scrollDown() {
     let el = $("#contents");
     el.scrollTop(el[0].scrollHeight);

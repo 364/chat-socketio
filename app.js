@@ -1,6 +1,7 @@
 let express = require("express");
 let app = express();
-let server = require("http").createServer(app);
+let http = require("http");
+let server = http.createServer(app);
 let io = require("socket.io").listen(server);
 let bodyParser = require("body-parser");
 let cookieParser = require("cookie-parser");
@@ -14,11 +15,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "/public")));
 
 io.sockets.on("connection", function(socket) {
-  socket.emit("news", { hello: "word" });
-  socket.on("event", function(data) {
-    console.log(data);
-  });
-
+  // 进入房间
   socket.on("online", function(data) {
     socket.name = data.user;
     if (users[data.user] == null) {
@@ -27,23 +24,24 @@ io.sockets.on("connection", function(socket) {
     }
     io.sockets.emit("online", { users, user: data.user });
   });
-
+  // 聊天
   socket.on("say", function(data) {
-    console.log(data);
-    
+    // console.log(data);
     if (data.to == "all") {
       // 广播
       socket.broadcast.emit("say", data);
     } else {
       let id = map[data.to];
       if (id) {
-        io.sockets.connected[id].emit("say", data);
+        // 对应的客户端
+        let client = io.sockets.connected[id];
+        client.emit("say", data);
       } else {
         console.log("用户已下线");
       }
     }
   });
-
+  // 离开房间
   socket.on("disconnect", function() {
     if (users[socket.name]) {
       delete users[socket.name];
@@ -81,4 +79,7 @@ app.post("/signin", function(req, res) {
   }
 });
 
-server.listen(port, function() {});
+// 启动服务
+server.listen(port, function() {
+  console.log("server starting on port " + port);
+});
